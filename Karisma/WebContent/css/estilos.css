@@ -1,0 +1,225 @@
+
+/**Estilos Botón para FORMS **/
+.boton{
+	padding:5px 10px;
+	border:0px;
+	background:#6CF;
+	color:#000;
+	font-size:1em;
+	font-family:Verdana, Geneva, sans-serif;
+	-webkit-border-radius: 5px ;
+	-webkit-transition: background-color .25s ;
+}
+.boton:hover{
+	background-color:#6FF;
+	cursor:pointer;
+	
+	}
+/** Fin botones **/
+.textfield{
+	padding:2px;
+	border-radius:5px;
+	}
+.titulo{
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 20px;
+	text-align: center;
+	}
+.label{
+	padding-left: 3px;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: left;
+	}
+
+.link{
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:12px;
+	}
+	
+	
+
+/**Tablas para mantenimiento**/
+
+.tableM{
+	margin:10px auto;
+	border:0.5px solid black;
+	border-right:0.5px solid black;
+	border-collapse:collapse;
+	width: 80%;
+	font-size:12px;
+	font-weight:bold;
+	background:#B7D5FF;
+	font-family:Verdana, Geneva, sans-serif
+
+	}
+
+.tableM tr:nth-child(2n+1) td{
+	width:auto;
+	max-height:30px;
+	background-color:#DCE2EC;
+	
+	}
+.tableM td{
+	width:auto;
+
+	
+	}
+	
+.tableM th{
+	padding: 3px;
+	background: #96AAC6;
+}
+
+.tableIng{
+	margin-top:20px;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:15px;
+	background:#FC6;
+	border-color:#FC6;
+	}
+.tableIng2{
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:15px;
+	background:#FC6;
+	border-color:#FC6;
+	}
+.TCita{
+	margin-top:50px;
+	background:#80D9EF;
+	}
+
+/**Tablas para Busqueda**/
+.TBuscar{
+	
+	margin-top:20px;
+	border:0.5px solid black;
+	border-right:0.5px solid black;
+	border-collapse:collapse;
+	float:left;
+	width: auto;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:12px;
+	font-weight:bold;
+	background:#B7D5FF;
+	
+	
+	}
+.TBuscar tr:nth-child(2n+1) td{
+	width:auto;
+	max-height:30px;
+	background-color:#DCE2EC;
+	
+	}
+.TBuscar td{
+	width:auto;
+	max-height:30px;
+	
+	}
+	
+.TBuscar th{
+	padding:3px;
+	background:#96AAC6;
+}
+	
+.linkCSS {
+	text-decoration:none;
+	
+	display:block;
+
+	}
+
+.linkCSS:hover{
+	background:#96AAC6;
+}
+
+.linkBuscar{
+	background:#6CF;
+	display:block;
+	background:#6CF;
+	color:#000;
+	font-size:1em;
+	font-family:Verdana, Geneva, sans-serif;
+	-webkit-border-radius: 5px ;
+	-webkit-transition: background-color .25s ;
+		padding:5px 10px;
+}
+.linkBuscar :hover{
+	background-color:#6FF;
+	cursor:pointer;
+	}
+
+/*Botones con CSS*/
+
+.botonCSS{
+		color:#fff;
+		display:block;
+		background:#72CFEB;
+		margin-left:0;
+		text-decoration:none;
+		font-size:14px;
+		font-weight:bold;
+		font-family:Verdana, Geneva, sans-serif;
+		padding:10px 0px;
+		width:250px;
+		box-shadow:0px 2px 0px #54c5e7;
+	}
+.botonCSS span{
+	margin-right:10px;
+	margin-left:10px;
+	font-size:12px;
+	}
+.botonCSS:hover{
+	box-shadow:0px 1px 0px #54c5e7;
+	background:#63cae9;
+	-webkit-transition: all .4s ease;
+				-moz-transition: all .3s ease;
+				-ms-transition: all .3s ease;
+				-o-transition: all.3s ease;
+				transition: all .3s ease;
+	text-decoration: none;
+	color:#fff;
+	}
+.botonCSS:visited{
+	text-decoration: none;
+	color:#fff;
+	}
+/*Botones de Eliminar y Editar*/
+.linkIcon {
+	text-decoration:none;
+	color:#000;
+	font-size:20px;
+	font-weight:bold;
+	display:inline-block;
+	}
+.linkIcon.edit{
+	color:#000;
+	margin-left:5px;
+	}
+.linkIcon.delete{
+	color:red;
+	margin-left:10px;
+	font-size:22px;
+	float:right
+	}
+
+
+/*Estilos para el date picker*/
+.ui-widget { 
+font-family: Verdana,Arial,sans-serif; 
+font-size: .9em;
+}
+.ui-datepicker { /*no width*/ 
+padding: .2em .2em 0; 
+}
+.ui-datepicker table {
+	width: 100%; 
+	font-size: 0.8em; 
+	border-collapse: collapse; 
+	margin:0 0 .4em; 
+	}
+.ui-datepicker-month, .ui-datepicker-year{
+	background:#FFF3B4;
+	font-size:12px;
+	}

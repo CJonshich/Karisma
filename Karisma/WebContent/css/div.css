@@ -1,0 +1,260 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+
+/* Modificar data table*/
+
+.dataTables_length{
+	display:none;
+}
+
+/*Header*/
+
+
+body{
+	background: #F7FBFF;
+}
+
+header{
+	background: #72CFEB;
+	color: #fff;
+
+}
+.wrapper{
+	width:95%;
+	max-width:1200px;
+	overflow:hidden;
+	margin:auto;
+	}
+	
+.imagenLogo{
+	float:right;
+	}
+	
+.imagenLogo img{
+	height:90px;
+	max-height:90px;
+	}
+
+/**Fin Header**/
+
+/*Contenidos*/
+
+.contenidos{
+	min-height: 479px;
+	height: auto;
+}
+.contenidos.index{
+	min-height: 549px;
+	height: auto;
+}
+.form-ito{
+    margin-left: 0;
+    margin-right: 0;
+}
+/*Fin Contenidos*/
+/*Login*/
+.login{
+	margin-top: 50px;
+}
+/*Footer*/
+	
+footer{
+	color:#fff;
+	background: #4EB3D3;
+	margin-top: 10px;
+	}
+
+/**Fin Footer**/
+	
+/**Menú desplegable**/	
+
+ul,li,nav{
+		padding:0px;
+		margin:0px;}
+nav{
+			
+			margin:0px auto;
+			z-index:1000;	
+			background:#72CFEB;	
+			
+        }
+nav ul {
+			list-style-type:none;
+			
+        }
+nav ul li{
+	display:inline-block;
+	position: relative;
+	width:180px;
+	
+	}
+nav ul li:hover {
+	background:#7bc6de;
+	-webkit-transition: all .4s ease;
+				-moz-transition: all .3s ease;
+				-ms-transition: all .3s ease;
+				-o-transition: all.3s ease;
+				transition: all .3s ease;
+	text-decoration: none;
+}
+
+nav ul li:visited{
+	color: #fff;
+	text-decoration: none;
+}
+
+nav ul li a{
+  		   	color:#fff;
+			display: block;
+			text-decoration: none;
+			padding: 20px;
+			font-family:Verdana, Geneva, sans-serif;
+}
+
+nav ul li a:hover {
+	color: #fff;
+	text-decoration: none;
+}
+nav ul li a:visited {
+	color: #fff;
+	text-decoration: none;
+}
+nav ul li a:link:active {
+	color: #fff;
+	text-decoration: none;
+}
+nav ul li a:link:visited {
+	color: #fff;
+	text-decoration: none;
+}
+
+
+{
+	color: #fff;
+	text-decoration: none;
+}
+
+
+nav ul li span {
+	margin-right:10px;
+}
+
+nav ul li:hover .children {
+	display:block;
+
+}
+
+nav ul li .children li:hover{
+	background: #83b8bc;
+	/*background:#2e2e2e;*/
+	text-decoration: none;}
+	
+nav ul li .children {
+	display: none;
+	background:black;
+	position: absolute;
+	width:100%;
+	z-index:1000;
+}
+nav ul li .children li {
+	
+	display:block;
+	overflow: hidden;
+	border-bottom: 1px solid rgba(255,255,255,.5);
+}
+nav ul li .children li a {
+	display: block;
+}
+nav ul li .children li a span {
+	float: right;
+	position: relative;
+	top:3px;
+	margin-right:0;
+	margin-left:10px;
+}
+nav ul li .caretCSS {
+	float:right;
+	position: relative;
+	top:3px;
+	margin-left:10px;
+	margin-right:0px;
+	font-weight:bold;
+}
+nav ul li .children li a span {
+	float: right;
+	position: relative;
+	top:3px;
+	margin-right:0;
+	margin-left:10px;
+}
+
+/**Fin Menú**/			
+			
+/**Estructura **/	
+
+div#mensaje{
+	float: left;
+	height:50px;
+	width: 500px;
+	margin-left:350px;
+	margin-top:285px;
+	
+	}
+
+
+div#login{
+	margin-top:180px; 
+	height:240px;
+	background:url(../images/IniciaSession.fw.png);
+	background:no-repeat;
+	border-radius:5px;
+	}
+
+
+/** Divs para busqueda**/
+.buscar{
+	margin:auto;
+	height:auto;
+	width:auto;
+	}
+
+/* Container para botones de Mantenimientos*/
+
+.botonContainer{
+	width:90%;
+	margin-top:20px;
+	}
+	
+/* Div para los titulos en agregar*/
+.titleAgregar{
+	margin:30px auto;
+	width:50%;
+	border:1px solid #3498db;
+	}
+
+.titleAgregar h2{
+	color:#3498db;
+	font-family:Verdana, Geneva, sans-serif;
+	text-align:center}
+	
+/*DivS para mensajes de error*/
+.error{
+	color:#DD4B39;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:14px;
+	width:75%;
+	margin-left:7.5%;
+	padding:5px;
+	-webkit-boxshadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    -o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	position:relative;
+	display:none;
+	background:#F2DEDE;
+	}
+.error span{
+	font-size:12px;
+	margin-right:2px;
+	}
