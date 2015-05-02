@@ -193,7 +193,5 @@ public class ServletCita extends HttpServlet {
 		}
 		
 	}
-	/*Comentario para probar la función de sync y update de github con mi codigo*/
-	/*Random Comment*/
-	
+
 }
