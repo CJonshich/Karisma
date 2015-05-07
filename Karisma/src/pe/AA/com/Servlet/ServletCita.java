@@ -39,9 +39,9 @@ public class ServletCita extends HttpServlet {
 		String opcion=request.getParameter("opcion");
 		if(opcion.equalsIgnoreCase("agregar")){
 			
-			I_Horario horarioDao = DaoFactory.getFactory(DaoFactory.MYSQL).getHorarioDao();
-			
-			response.sendRedirect("generarCita.jsp");
+			List<BeanHorario> lista = DaoFactory.getFactory(DaoFactory.MYSQL).getHorarioDao().listar();
+			request.setAttribute("listahorario", lista);
+			request.getRequestDispatcher("generarCita.jsp").forward(request, response);;
 			
 		}else if (opcion.equals("actualizar")){
 			response.sendRedirect("actualizarCita.jsp");
