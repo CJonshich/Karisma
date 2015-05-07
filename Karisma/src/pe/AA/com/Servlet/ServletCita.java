@@ -1,10 +1,7 @@
 package pe.AA.com.Servlet;
 
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 
@@ -14,13 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import pe.AA.com.Bean.BeanCita;
-import pe.AA.com.Bean.BeanOdontologo;
-import pe.AA.com.Bean.BeanPaciente;
+import pe.AA.com.Bean.*;
 import pe.AA.com.Factory.DaoFactory;
-import pe.AA.com.Factory.Interface.I_Cita;
-import pe.AA.com.Factory.Interface.I_Odontologo;
-import pe.AA.com.Factory.Interface.I_Paciente;
+import pe.AA.com.Factory.Interface.*;
+
 
 /**
  * Servlet implementation class ServletCita
@@ -44,7 +38,11 @@ public class ServletCita extends HttpServlet {
 		// TODO Auto-generated method stub
 		String opcion=request.getParameter("opcion");
 		if(opcion.equalsIgnoreCase("agregar")){
+			
+			I_Horario horarioDao = DaoFactory.getFactory(DaoFactory.MYSQL).getHorarioDao();
+			
 			response.sendRedirect("generarCita.jsp");
+			
 		}else if (opcion.equals("actualizar")){
 			response.sendRedirect("actualizarCita.jsp");
 		}else if(opcion.equalsIgnoreCase("buscar")){
