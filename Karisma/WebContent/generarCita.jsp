@@ -81,10 +81,10 @@
               </div>
 
               <div class="form-group">
-                <label for="tm_Hinicio" class="control-label col-md-3">Horario</label>
+                <label for="tm_Hinicio" class="control-label col-md-3">Hora de Inicio</label>
                 <div class="col-md-9">
-                  <select name="sel_horario" class="form-control">
-                  </select>
+                  <input type="time" class="form-control" id="tm_Hinicio" name="tm_Hinicio" min="09:00:00" max="21:00:00" step="1" required>
+                </div>
               </div>
 
               <div class="form-group">
