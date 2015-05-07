@@ -29,6 +29,7 @@ public class BeanCita {
 	//
 	private BeanPaciente paciente;
 	private BeanOdontologo odontologo;
+	private BeanHorario horario;
 	
 	public String getNom() {
 		return nom;
@@ -143,6 +144,12 @@ public class BeanCita {
 	}
 	public void setPaciente(BeanPaciente paciente) {
 		this.paciente = paciente;
+	}
+	public BeanHorario getHorario() {
+		return horario;
+	}
+	public void setHorario(BeanHorario horario) {
+		this.horario = horario;
 	}
 	
 	
