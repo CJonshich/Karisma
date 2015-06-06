@@ -1,7 +1,6 @@
 package pe.AA.com.Factory.MySQL;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -33,7 +32,7 @@ public class MySQLCitaDao extends MySQLDaoFactory implements I_Cita {
 			con=DBConnection.getConnection();
 			Statement stmt=con.createStatement();
 			String sql="INSERT INTO cita" +
-					"(idpaciente,idodontologo,fecha,horaInicio,motivo,estadoCita) " +
+					"(idpaciente,idodontologo,fecha,idhorario,motivo,estadoCita) " +
 					"VALUES" +
 					"('"+objcita.getIdpaciente()+"','"+objcita.getIdodontologo()+"','"+objcita.getFecha()+"','"+objcita.getHoraIni()+"','"+objcita.getMotivo()+"','"+objcita.getEstadoCita()+"') ";
 			

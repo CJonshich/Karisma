@@ -83,7 +83,7 @@
     <%@ include file="footer.jsp"%>
 
 
-<script>
+<!--  <script>
 $(document).ready(function(){
 	 //Expresión para validar un correo electrónico
         var expr = /^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/;
@@ -114,7 +114,7 @@ $(document).ready(function(){
 			});
 	
 	});
-</script>
+</script> -->
 
 <script>
 	$(document).ready(function(){

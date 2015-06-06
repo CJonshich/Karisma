@@ -10,6 +10,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="pe.AA.com.Bean.*" %>
 <% List<BeanOdontologo> listaO = (List<BeanOdontologo>)request.getAttribute("listaO"); %>
+
 <body bgcolor="#6666FF">
 
 <table width="600" border="1" bgcolor="#99FFE5" class="TBuscar">

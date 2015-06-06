@@ -200,10 +200,12 @@
 .linkIcon.delete{
 	color:red;
 	margin-left:10px;
-	font-size:22px;
+	font-size:18px;
 	float:right
 	}
-
+.linkIcon.add{
+	color:#000;
+}
 
 /*Estilos para el date picker*/
 .ui-widget { 

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pe.AA.com.Bean.BeanCita;
+import pe.AA.com.Bean.BeanDistrito;
 import pe.AA.com.Bean.BeanOdontologo;
 import pe.AA.com.Bean.BeanPersona;
 import pe.AA.com.Factory.MySQLDaoFactory;
@@ -128,7 +129,121 @@ public class MySQLOdontologoDao extends MySQLDaoFactory implements I_Odontologo 
 	@Override
 	public List<BeanOdontologo> buscarOdontologos() {
 		// TODO Auto-generated method stub
-		return null;
+		List<BeanOdontologo> lista = new ArrayList<BeanOdontologo>();
+		Connection con = null;
+		
+		try {
+			
+			con=DBConnection.getConnection();
+			String sql = "SELECT * FROM odontologo O INNER JOIN persona P ON O.idodontologo=P.idpersona INNER JOIN distrito D ON P.iddistrito=D.iddistrito WHERE O.estado=1";
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			
+			while(rs.next()){
+				
+				BeanDistrito distrito = new BeanDistrito();
+				distrito.setIddistrito(rs.getInt("D.iddistrito"));
+				distrito.setNomdistrito(rs.getString("D.nomdistrito"));
+				
+				BeanPersona persona = new BeanPersona();
+				persona.setIdpersona(rs.getInt("P.idpersona"));
+				persona.setNom(rs.getString("P.nom"));
+				persona.setApePat(rs.getString("P.apePat"));
+				persona.setApeMat(rs.getString("P.apeMat"));
+				persona.setDni(rs.getString("P.dni"));
+				persona.setFecNac(rs.getString("P.fecNac"));
+				persona.setSexo(rs.getString("P.sexo"));
+				persona.setDomicilio(rs.getString("P.domicilio"));
+				persona.setTelefono(rs.getString("P.telefono"));
+				persona.setEmail(rs.getString("P.email"));
+				persona.setDistrito(distrito);
+				
+				BeanOdontologo odontologo = new BeanOdontologo();
+				odontologo.setIdodontologo(rs.getInt("O.idodontologo"));
+				odontologo.setColegiatura(rs.getString("O.nrocolegiatura"));
+				odontologo.setPersona(persona);
+				
+				lista.add(odontologo);
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return lista;
+	}
+
+	@Override
+	public List<BeanOdontologo> buscarReservados(String fecha, String idhorario) {
+		// TODO Auto-generated method stub
+		List<BeanOdontologo> lista = new ArrayList<BeanOdontologo>();
+		Connection con = null;
+		try {
+			con=DBConnection.getConnection();
+			String sql= "SELECT * FROM cita WHERE fecha ='"+fecha+"' AND idhorario = '"+idhorario+"' ";
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			
+			while(rs.next()){
+				BeanOdontologo odontologo = new BeanOdontologo();
+				odontologo.setIdodontologo(rs.getInt("idodontologo"));
+				
+				lista.add(odontologo);
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Error al buscar odontologos por disponibilidad: "+e.getMessage());
+		}
+		return lista;
+	}
+
+	@Override
+	public List<BeanOdontologo> filtrarOdontologos(String filtro) {
+		// TODO Auto-generated method stub
+		List<BeanOdontologo> lista = new ArrayList<BeanOdontologo>();
+		Connection con = null;
+		try {
+			
+			con=DBConnection.getConnection();
+			String sql="SELECT * FROM odontologo O INNER JOIN persona P ON O.idodontologo=P.idpersona INNER JOIN distrito D ON P.iddistrito=D.iddistrito WHERE ";
+			sql+=filtro;
+			Statement stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			
+			while(rs.next()){
+
+				BeanDistrito distrito = new BeanDistrito();
+				distrito.setIddistrito(rs.getInt("D.iddistrito"));
+				distrito.setNomdistrito(rs.getString("D.nomdistrito"));
+				
+				BeanPersona persona = new BeanPersona();
+				persona.setIdpersona(rs.getInt("P.idpersona"));
+				persona.setNom(rs.getString("P.nom"));
+				persona.setApePat(rs.getString("P.apePat"));
+				persona.setApeMat(rs.getString("P.apeMat"));
+				persona.setDni(rs.getString("P.dni"));
+				persona.setFecNac(rs.getString("P.fecNac"));
+				persona.setSexo(rs.getString("P.sexo"));
+				persona.setDomicilio(rs.getString("P.domicilio"));
+				persona.setTelefono(rs.getString("P.telefono"));
+				persona.setEmail(rs.getString("P.email"));
+				persona.setDistrito(distrito);
+				
+				BeanOdontologo odontologo = new BeanOdontologo();
+				odontologo.setIdodontologo(rs.getInt("O.idodontologo"));
+				odontologo.setColegiatura(rs.getString("O.nrocolegiatura"));
+				odontologo.setPersona(persona);
+				
+				lista.add(odontologo);
+				
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Error al filtrar Odontologos: "+e.getMessage());
+		}
+		return lista;
 	}
 
 	

@@ -5,7 +5,9 @@
 <html>
 <%@ include file="head.jsp"%>
 <body>
-
+<%@page import="pe.AA.com.Bean.*" %>
+<%@ page import="java.util.List" %>
+<%List<BeanHorario> lista = (List<BeanHorario>) request.getAttribute("listahorario"); %>
 	
 	<%@ include file="header.jsp" %>
     
@@ -35,8 +37,7 @@
                   </div><!--Fin Input Group-->
                 </div>
               </div>
-            </form> 
-            <form action="cita" method="post" class="form-horizontal" role="form">
+
               <div class="form-group">
                 <label for="txtnombre" class="control-label col-md-3">Nombres</label>
                 <div class="col-md-9">
@@ -58,18 +59,11 @@
                 </div>
               </div>
 
-              <div class="form-group">
-                <label for="txtodontologo" class="control-label col-md-3">Odontologo</label>
-                <div class="col-md-9">
-                  <div class="input-group">
-                    <input type="text" class="form-control" id="txtodontologo" name="txtodontologo" readonly>
-                    <span class="input-group-btn">
-                      <button class="btn btn-info" id="BuscarOdontologo" type="button" onClick="buscarOdontologo()">Buscar Odontologo</button>
-                    </span>
-                  </div><!--Fin Input Group-->
-                </div>
-              </div>
+             </form> <!--Fin Form Buscar Paciente-->
 
+
+               <form action="odontologo" method="post" class="form-horizontal" target="Buscar Odontologo" onSubmit="window.open('','Buscar Odontologo','toolbar=no,location=no,menubar=no,scrollbars=yes,height=400,width=600')"> 
+              <input type="hidden" value="buscar" id="opcion" name="opcion">
               <div class="form-group">
                 <label for="txtfechaCita" class="control-label col-md-3">Fecha de la Cita</label>
                  <div class="col-md-9">
@@ -81,12 +75,31 @@
               </div>
 
               <div class="form-group">
-                <label for="tm_Hinicio" class="control-label col-md-3">Horario</label>
+                <label for="sel_horario" class="control-label col-md-3">Horario</label>
                 <div class="col-md-9">
-                  <select name="sel_horario" class="form-control">
+                  <select name="sel_horario" class="form-control" id="sel_horario">
+                  <%for(BeanHorario horario : lista){ %>
+                  	<option value=<%=horario.getIdhorario() %>> <%=horario.getHoraInicio() %> - <%=horario.getHoraFin() %></option>
+                  <%} %>
                   </select>
               </div>
+              </div>
 
+               <div class="form-group">
+                <label for="txtodontologo" class="control-label col-md-3">Odontologo</label>
+                <div class="col-md-9">
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="txtodontologo" name="txtodontologo" readonly>
+                    <span class="input-group-btn">
+                      <button class="btn btn-info" type="submit" id="BuscarOdontologo" value="BuscarOdontologo">Buscar Odontologo</button>
+                    </span>
+                  </div><!--Fin Input Group-->
+                </div>
+              </div>
+
+            </form> 
+            <!--Fin form buscar Odontologo por Disponibilidad-->
+            <form action="cita" method="post" class="form-horizontal" role="form">
               <div class="form-group">
                 <label for="txtmotivo" class="control-label col-md-3">Motivo</label>
                 <div class="col-md-9">
@@ -104,9 +117,10 @@
                 </div>
               </div>
 
-              <!--Hiddens de los Id's y la Opción-->
+              <!--Hiddens de los Id's y la Opción, estos manejan los datos que serán enviados al servlet-->
               <input type="hidden" name="idpaciente" id="idpaciente" value="" >
               <input type="hidden" name="idodontologo" id="idodontologo" value="">
+
               <input type="hidden" value="registrar" name="opcion" id="opcion"> 
               <input type="hidden" name="txtfecNac" id="txtfecNac">
               <input type="hidden" name="txtsexo" id="txtsexo">
@@ -115,9 +129,11 @@
               <input type="hidden" name="txtGSanguineo" id="txtGSanguineo">
               <input type="hidden" name="dni" id="dni">
 
+              <input type="hidden" name="idhorario" id="idhorario">
+              <input type="hidden" id="fecha" name="fecha">
               <!--Fin hiddens-->
 
-            </form>
+            </form><!--Fin form agregar cita-->
           </div><!--Panel Body-->  
         </div><!--Panel-->  
       </div><!--Columnas-->  

@@ -79,12 +79,13 @@ public class ServletServicio extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		String opcion=request.getParameter("opcion");
+		System.out.println("Selecciono: "+opcion);
 		if(opcion.equals("agregar")){
 			BeanServicio servicio=new BeanServicio();
 			servicio.setNomservicio(request.getParameter("txtNombre"));
 			servicio.setDescripcion(request.getParameter("txaDescripcion"));
 			servicio.setCosto(Double.parseDouble(request.getParameter("txtCosto")));
-			
+			System.out.println("Selecciono guardar");
 			//DAO
 			I_Servicio servicioDao = DaoFactory.getFactory(DaoFactory.MYSQL).getServicioDao();
 			int id=servicioDao.agregar(servicio);

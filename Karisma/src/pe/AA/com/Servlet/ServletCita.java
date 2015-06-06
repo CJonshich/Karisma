@@ -87,23 +87,26 @@ public class ServletCita extends HttpServlet {
 		String opcion=request.getParameter("opcion");
 		//Escoge función
 		if(opcion.equalsIgnoreCase("registrar")){
-			BeanCita objcita = new BeanCita();
-			objcita.setIdpaciente(Integer.parseInt(request.getParameter("idpaciente")));
-			objcita.setIdodontologo(Integer.parseInt(request.getParameter("idodontologo")));
-			objcita.setMotivo(request.getParameter("txtmotivo"));
-			objcita.setHoraIni(request.getParameter("tm_Hinicio"));
-			objcita.setFecha(request.getParameter("txtfecha"));
+			BeanHorario horario = new BeanHorario();
+			horario.setIdhorario(Integer.parseInt(request.getParameter("idhorario")));
+			
+			BeanCita cita = new BeanCita();
+			cita.setIdpaciente(Integer.parseInt(request.getParameter("idpaciente")));
+			cita.setIdodontologo(Integer.parseInt(request.getParameter("idodontologo")));
+			cita.setMotivo(request.getParameter("txtmotivo"));
+			cita.setFecha(request.getParameter("fecha"));
+			cita.setHorario(horario);
 			String estadoCita="A";
-			objcita.setEstadoCita(estadoCita);
+			cita.setEstadoCita(estadoCita);
 			//DAO
 			I_Cita citaDao=DaoFactory.getFactory(DaoFactory.MYSQL).getCitaDao();
 			
 			//Devolución y muestra de mensajes de resultado
 			int id=0;
-			id=citaDao.registrarCita(objcita);
+			id=citaDao.registrarCita(cita);
 			if(id!=0){
 				I_Odontologo odontologoDao=DaoFactory.getFactory(DaoFactory.MYSQL).getOdontologoDao();
-				odontologoDao.actualizarEstado(objcita.getIdodontologo(),"O");
+				odontologoDao.actualizarEstado(cita.getIdodontologo(),"O");
 				request.setAttribute("mensaje", "Cita generada satisfactoriamente");
 				request.getRequestDispatcher("/mensaje.jsp").forward(request, response);
 		
