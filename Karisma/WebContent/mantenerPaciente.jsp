@@ -23,7 +23,7 @@
         <table id="DataTable" class="stripe display" cellspacing="0" width="100%">
           <thead>
             <tr>
-              <th >Acción</th>
+              <th >AcciÃ³n</th>
               <th >DNI</th>
               <th >Nombre</th>
               <th >Apellido Paterno</th>
@@ -42,7 +42,7 @@
             <%for(BeanPaciente paciente : lista){ %>
             <tr>
               <td><%int idpac=paciente.getIdpaciente(); %><a href="<%=request.getContextPath()%>/paciente?opcion=editar&id=<%=idpac%>"class="linkIcon edit">
-                <span class="icon-edit"></span></a> <a href="<%=request.getContextPath()%>/paciente?opcion=eliminar&id=<%=paciente.getIdpaciente() %>" class="linkIcon delete" onClick="return confirm('¿Desea eliminar a la persona con DNI: <%=paciente.getPersona().getDni()%>?')"><span class="icon-cross"></span></a> </td>
+                <span class="icon-edit"></span></a> <a href="<%=request.getContextPath()%>/paciente?opcion=eliminar&id=<%=paciente.getIdpaciente() %>" class="linkIcon delete" onClick="return confirm('Â¿Desea eliminar a la persona con DNI: <%=paciente.getPersona().getDni()%>?')"><span class="icon-cross"></span></a> </td>
               <td><%=paciente.getPersona().getDni() %> </td>
               <td><%=paciente.getPersona().getNom() %></td>
               <td><%=paciente.getPersona().getApePat() %></td>
@@ -62,6 +62,29 @@
         </table>
       </div>
      </div>
+
+    <div class="modal fade" id="modal_paciente" tabindex="-1" role="dialog" aria-labelledby="modal_paciente" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"
+              aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              
+            </div>
+          </div><!--Fin Body-->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary" id="btn_guardar_pac">Guardar</button>
+          </div><!-- Fin footer -->
+        </div><!--Fin Content-->
+      </div><!--Fin Dialog-->
+    </div><!--Fin Modal-->
+
   </div>
 
 </div>

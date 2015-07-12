@@ -4,30 +4,34 @@
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <!--JQuery
 <script src="js/jquery-1.11.2.min.js"></script>-->
-<script src="js/jquery.js"></script>
+<script src="static/vendor/jquery.js"></script>
 
-<link rel="stylesheet" href="css/div.css">
-<link rel="stylesheet" href="css/fonts.css">
-<link rel="stylesheet" href="css/jquery-ui.min.css">
-<link rel="stylesheet" href="css/bootstrap.min.css" />
-<link rel="stylesheet" href="css/estilos.css"/>
-<!-- Data Table  -->
-<link rel="stylesheet" type="text/css" href="css/jquery.dataTables.css">
-<link rel="stylesheet" type="text/css" href="css/dataTables.responsive.css">
-<script type="text/javascript" charset="utf8" src="js/jquery.dataTables.js"></script>
-<script type="text/javascript" charset="utf8" src="js/dataTables.responsive.min.js"></script>
+<link rel="stylesheet" href="static/css/div.css">
+<link rel="stylesheet" href="static/css/estilos.css"/>
+
+<link rel="stylesheet" href="static/vendor/icomoon/fonts.css">
+<link rel="stylesheet" href="static/vendor/Bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="static/vendor/JqueryUI/jquery-ui.min.css">
+
 
 <!-- Data Table  -->
-<script src="js/jquery-ui.min.js"></script>
+<link rel="stylesheet" type="text/css" href="static/vendor/DataTables/media/css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="static/vendor/DataTables/extensions/Responsive/css/dataTables.responsive.css">
+<script type="text/javascript" charset="utf8" src="static/vendor/DataTables/media/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" charset="utf8" src="static/vendor/DataTables/extensions/Responsive/js/dataTables.responsive.min.js"></script>
 
-<script src="js/bootstrap.min.js"></script>
+<!-- Data Table  -->
 
-<script src="js/validCampoFranz.js"></script>
-<script src="js/menuV.js"></script>
-<script src="js/calendario.js"></script>
-<!-- Data Table JQuery -->
+<script src="static/vendor/JqueryUI/jquery-ui.min.js"></script>
+<script src="static/vendor/Bootstrap/js/bootstrap.min.js"></script>
 
-<script src="js/dataTable.js"></script>
+<script src="static/vendor/validCampoFranz.js"></script>
+<script src="static/js/menuV.js"></script>
+<script src="static/js/calendario.js"></script>
+
+
+<script src="static/js/dataTable.js"></script>
+<script src="static/js/general.js"></script>
 
 <!--Iconos-->
 
