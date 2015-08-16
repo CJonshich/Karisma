@@ -7,13 +7,36 @@
 <%@ page import="java.util.List" %>
 <%@ page import="pe.AA.com.Bean.*" %>
 <% List<BeanServicio> lista = (List<BeanServicio>) request.getAttribute("listaServicios"); %>
+<% String messageOk = (String) request.getSession().getAttribute("servicioOk"); %>
+<% String messageError = (String) request.getSession().getAttribute("servicioError"); %>
+
+<% if(messageOk!=null){ %>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$("#insertOk").fadeIn();
+	});
+		
+	</script>
+<% session.removeAttribute("servicioOk");} %>
 
 <%@ include file="header.jsp" %>
-
     
 <div class="container">
   <div class="contenidos">
-    <div class="botonContainer"> 
+  <!-- Alerts -->
+  	
+  	<div class="col-md-12" style="margin-top:5px;">
+  		<div class="alert alert-success alert-dismissible" role="alert" id="insertOk">
+		  			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		  			<strong>Exito!</strong>  
+		  			<% if(messageOk!=null){ %>
+		  				<%=messageOk %>
+		  			<% }%>
+		</div>
+  	</div>
+	  	
+			
+    <div class="col-md-12" > 
           <a class="botonCSS" href="#" data-toggle="modal" data-target="#modal_servicio">
           <span class="icon-plus"></span>Agregar Nuevo Servicio
           </a>
@@ -34,8 +57,8 @@
             <%if(lista.size()>0){ %>
             <%for(BeanServicio servicio:lista){ %>
               <tr>
-                <td> <a class="linkIcon edit" href='<%=request.getContextPath()%>/servicio?opcion=editar&id=<%=servicio.getIdservicio()%>'><span class="icon-edit"></span></a> 
-                  <a class="linkIcon delete" href='<%=request.getContextPath()%>/servicio?opcion=eliminar&id=<%=servicio.getIdservicio() %>' onClick="return confirm('Â¿Desea eliminar este servicio: <%=servicio.getNomservicio()%>?')"><span class="icon-cross"></span></a></td>
+                <td> <a class="linkIcon edit editServicio" title="Editar Servicio" href="#" data-id='<%=servicio.getIdservicio()%>' data-toggle="modal" data-target="#modal_servicio"><span class="icon-edit"></span></a> 
+                  <a class="linkIcon delete deleteServicio" data-name='<%=servicio.getNomservicio()%>' href='<%=request.getContextPath()%>/servicio?opcion=eliminar&id=<%=servicio.getIdservicio() %>'><span class="icon-cross"></span></a></td>
                 <td><%=servicio.getIdservicio() %></td>
                 <td><%=servicio.getNomservicio() %></td>
                 <td><%=servicio.getDescripcion() %></td>
@@ -56,25 +79,25 @@
               <span aria-hidden="true">&times;</span>
             </button>
             <h4 class="modal-title"> Agregar Servicio</h4>
-
+			
             </div>
             <div class="modal-body">
               <form id="form_servicio" action="servicio" method="post" >
-                <input type="hidden" id="txtCodservicio" name="txtCodservicio">
+                <input type="hidden" id="codservicio" name="codservicio">
                 <input type="hidden" id="opcion" name="opcion" >
                 <div class="form-group">
                   <label for="txtNombre" class="control-label">Nombre</label>
-                  <input type="text" id="txtNombre" name="txtNombre" class="form-control">
+                  <input type="text" id="nombre" name="nombre" class="form-control">
                 </div>
 
                 <div class="form-group">
                   <label for="txaDescripcion" class="control-label">Descripción</label>
-                  <textarea name="txaDescripcion" id="txaDescripcion" cols="" rows=""class="form-control"></textarea>
+                  <textarea name="descripcion" id="descripcion" cols="" rows=""class="form-control"></textarea>
                 </div>
                 
                 <div class="form-group">
                   <label for="txtCosto" class="contro-label">Costo</label>
-                  <input type="text" class="form-control" id="txtCosto" name="txtCosto">
+                  <input type="text" class="form-control" id="costo" name="costo">
                 </div>
               </form>
             </div>

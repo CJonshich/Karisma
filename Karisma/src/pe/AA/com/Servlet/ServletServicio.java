@@ -8,10 +8,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.google.gson.Gson;
 
 import pe.AA.com.Bean.BeanServicio;
 import pe.AA.com.Factory.DaoFactory;
 import pe.AA.com.Factory.Interface.I_Servicio;
+import pe.AA.com.Util.ResponseObject;
 
 /**
  * Servlet implementation class ServletServicio
@@ -51,12 +55,14 @@ public class ServletServicio extends HttpServlet {
 			//Capturar el id
 			int id = Integer.parseInt(request.getParameter("id"));
 			
+			response.setContentType("application/json");
+			response.setCharacterEncoding("UTF-8");
+			
 			//Dao
 			I_Servicio servicioDao=DaoFactory.getFactory(DaoFactory.MYSQL).getServicioDao();
 			BeanServicio servicio = servicioDao.buscarxId(id);
 			
-			request.setAttribute("servicioEdit",servicio);
-			request.getRequestDispatcher("editarServicio.jsp").forward(request, response);
+			response.getWriter().write(new Gson().toJson(servicio));
 			
 		}else if(opcion.equals("eliminar")){
 			int idservicio=Integer.parseInt(request.getParameter("id"));
@@ -77,46 +83,48 @@ public class ServletServicio extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+			
+			HttpSession session=request.getSession(true);
+			
+			String opcion=request.getParameter("opcion");
 		
-		String opcion=request.getParameter("opcion");
-		System.out.println("Selecciono: "+opcion);
-		if(opcion.equals("agregar")){
-			BeanServicio servicio=new BeanServicio();
-			servicio.setNomservicio(request.getParameter("txtNombre"));
-			servicio.setDescripcion(request.getParameter("txaDescripcion"));
-			servicio.setCosto(Double.parseDouble(request.getParameter("txtCosto")));
-			System.out.println("Selecciono guardar");
-			//DAO
-			I_Servicio servicioDao = DaoFactory.getFactory(DaoFactory.MYSQL).getServicioDao();
-			int id=servicioDao.agregar(servicio);
-			
-			if(id!=0){
-				response.sendRedirect("servicio?opcion=listar");
-			}else{
-				request.setAttribute("mensaje", "No se pudo agregar el servicio");
-				request.getRequestDispatcher("mensaje.jsp").forward(request, response);
-			}
-			
-		}else if(opcion.equals("editar")){
+			String errorMessage = "";
+			String successMessage = "";
+			int id = 0;
+			boolean flag = false;	
 			
 			BeanServicio servicio=new BeanServicio();
-			servicio.setIdservicio(Integer.parseInt(request.getParameter("txtCodServicio")));
-			servicio.setNomservicio(request.getParameter("txtNombre"));
-			servicio.setDescripcion(request.getParameter("txaDescripcion"));
-			servicio.setCosto(Double.parseDouble(request.getParameter("txtCosto")));
+			servicio.setNomservicio(request.getParameter("nombre"));
+			servicio.setDescripcion(request.getParameter("descripcion"));
+			servicio.setCosto(Double.parseDouble(request.getParameter("costo")));
 			
-			//Dao
 			I_Servicio servicioDao = DaoFactory.getFactory(DaoFactory.MYSQL).getServicioDao();
-			boolean flag = servicioDao.editar(servicio);
 			
+			if(opcion.equals("agregar")){
+				id=servicioDao.agregar(servicio);
+				if(id<1){
+					errorMessage="No se pudo agregar el servicio";
+				}
+			}else if(opcion.equals("editar")){
+				servicio.setIdservicio(Integer.parseInt(request.getParameter("codservicio")));
+				flag = servicioDao.editar(servicio);
+				if(!flag){
+					errorMessage="No se pudo editar el servicio";
+				}
+			}
 			
-			if(flag){
+			if(id!=0||flag){
+				if(id!=0){
+					successMessage="Se registró el servicio";
+				}else if(flag){
+					successMessage="Se modificó el servicio";
+				}
+				session.setAttribute("servicioOk", successMessage);
 				response.sendRedirect("servicio?opcion=listar");
 			}else{
-				request.setAttribute("mensaje", "No se pudo editar el servicio");
-				request.getRequestDispatcher("mensaje.jsp").forward(request, response);
+				session.setAttribute("servicioError", errorMessage);
 			}
-		}
+
 	}
 
 }
