@@ -23,28 +23,32 @@
 
           <div class="panel-body" style="padding:30px">
             <!--Nivel para alert--> 
-            <div style="display:none;" id="login-alert" class="alert alert-danger col-sm-12">
-              <span class="icon-cross2" style="margin-right:10px;"></span>Debe completar los campos Usuario y Contraseña.
+            <div class="alert alert-danger alert-dismissible" role="alert" id="login-wrong">
+              	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              	<strong>Error!</strong> Usuario o Contraseña equivocados.
+            </div>
+           <div class="alert alert-danger alert-dismissible" role="alert" id="login-empty" >
+               	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              	<strong>Error!</strong> Por Favor, complete todos los campos.
             </div>
             <div id="loginerror"></div>
             <!--Fin alert-->
               <form id="loginForm" class="form-horizontal" method="post" action="empleado">
                 
-                <input type="hidden" value="acceder" name="opcion" id="opcion">
                 
                 <div class="input-group" style="margin-bottom:20px">
                    <span class="input-group-addon"><span class="icon-user"></span></span>
-                   <input type="text" class="form-control" placeholder="Ingrese su nombre de Usuario" id="txtUsuario" name="txtUsuario"> 
+                   <input type="text" class="form-control" placeholder="Ingrese su nombre de Usuario" id="user" name="user"> 
                 </div>    
                
                 <div class="input-group">
-                  <span class="input-group-addon"><span class="icon-lock"></span></span>
-                  <input type="password" class="form-control" placeholder="Ingrese su Contraseña" id="txtClave" name="txtClave">
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                  <input type="password" class="form-control" placeholder="Ingrese su Contraseña" id="pass" name="pass">
                 </div>
                 
                 <div class="form-group" style="margin-top:10px">
                   <div class="col-sm-12 controls">
-                    <input type="submit" class="btn btn-info btn-block" value="Enviar" id="btnLogin" name="btnLogin">
+                    <input type="button" class="btn btn-info btn-block" value="Enviar" id="btnLogin" name="btnLogin">
                   </div>
                 </div>
 
