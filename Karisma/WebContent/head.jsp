@@ -12,7 +12,8 @@
 <link rel="stylesheet" href="static/vendor/icomoon/fonts.css">
 <link rel="stylesheet" href="static/vendor/Bootstrap/css/bootstrap.min.css" />
 <link rel="stylesheet" href="static/vendor/JqueryUI/jquery-ui.min.css">
-
+<link rel="stylesheet" href="static/vendor/alertifyjs/css/alertify.min.css">
+<link rel="stylesheet" href="static/vendor/alertifyjs/css/themes/bootstrap.min.css">
 
 <!-- Data Table  -->
 <link rel="stylesheet" type="text/css" href="static/vendor/DataTables/media/css/jquery.dataTables.min.css">
@@ -24,12 +25,11 @@
 
 <script src="static/vendor/JqueryUI/jquery-ui.min.js"></script>
 <script src="static/vendor/Bootstrap/js/bootstrap.min.js"></script>
-
 <script src="static/vendor/validCampoFranz.js"></script>
+<script src="static/vendor/alertifyjs/alertify.min.js"></script>
+
 <script src="static/js/menuV.js"></script>
 <script src="static/js/calendario.js"></script>
-
-
 <script src="static/js/dataTable.js"></script>
 <script src="static/js/general.js"></script>
 
