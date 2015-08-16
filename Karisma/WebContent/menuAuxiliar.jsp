@@ -5,9 +5,7 @@
 <%@ include file="head.jsp"%>
 <body >
 
-
-
-<!--   <div id="bienvenida"><p class="label">Bievenido: <%=request.getSession().getAttribute("usuario") %></p></div> !-->
+<!--   <div id="bienvenida"><p class="label">Bienvenido: <%=request.getSession().getAttribute("usuario") %></p></div> !-->
 	
  <%@ include file="header.jsp" %>
  	
@@ -16,11 +14,7 @@
   	<div class="contenidos">
   		<div class="row">
   			<div class="col-md-12">
-  		
-  		
-  		
-  		
-  		
+  			
   			</div>	
   		
   		</div>

@@ -16,13 +16,13 @@
         </div><!--Fin Head-->
         <div class="panel-body" style="padding:30px">
           <form name="Acita" action="cita" method="post" class="form-horizontal">
-            
+
             <div class="form-group"></div>
 
             <div class="form-group">
-              
-              <label for="txtNcita" class="control-label col-md-3">Número de Cita</label>
-              
+
+              <label for="txtNcita" class="control-label col-md-3">Nï¿½mero de Cita</label>
+
               <div class="col-md-9">
                <div class="input-group">
                 <input type="text" id="txtNcita" class="form-control" readonly>
@@ -37,24 +37,24 @@
               <label for="txtdni" class="control-label col-md-3">DNI</label>
                 <div class="col-md-9">
                   <input type="text" id="txtdni" class="form-control" readonly>
-                </div>  
+                </div>
             </div>
 
             <div class="form-group">
               <label for="txtnombre" class="control-label col-md-3">Nombres</label>
 
               <div class="col-md-9">
-                <input type="text" name="txtnombre" id="txtnombre" class="form-control" readonly>  
-              </div> 
+                <input type="text" name="txtnombre" id="txtnombre" class="form-control" readonly>
+              </div>
             </div>
-            
+
             <div class="form-group">
               <label for="txtapePat" class="control-label col-md-3">Apellido Paterno</label>
               <div class="col-md-9">
                     <input type="text" class="form-control" id="txtapePat" name="txtapePat" readonly>
-              </div>    
+              </div>
             </div>
-            
+
             <div class="form-group">
               <label for="txtapeMat" class="control-label col-md-3">Apellido Materno</label>
               <div class="col-md-9">
@@ -80,7 +80,7 @@
               </div>
             </div>
             <!--Hiddens-->
-            
+
             <input name="opcion" type="hidden" id="opcion" value="actualizar">
             <input name="idodontologo" type="hidden" id="idodontologo" value="">
             <input type="hidden" name="ncita" id="ncita" value="">
@@ -96,18 +96,18 @@
                   <input type="button" name="Cancelar" id="Cancelar" value ="Cancelar" class="btn btn-info" style="width:100%;margin-top:10px;">
                 </div>
             </div>
-              
-  
-            
+
+
+
           </form>
 
-        </div><!--Panel Body--> 
-      </div><!--Panel--> 
+        </div><!--Panel Body-->
+      </div><!--Panel-->
     </div><!--Columnas-->
-  
-  </div><!--Container-->  
 
-    
+  </div><!--Container-->
+
+
 <%@ include file="footer.jsp" %>
 
 <script type="text/javascript">
@@ -119,14 +119,14 @@
 <script>
   $(document).ready(function(){
     $("#Cancelar").click(function(){
-      
-      var response = confirm("¿Desea cancelar la operación?")
+
+      var response = confirm("Â¿Desea cancelar la operaciÃ³n?")
       if(response==true){
         window.location.href='<%=request.getContextPath()%>/menuAuxiliar.jsp';
       }else{
-      return false; 
+      return false;
       }
-      
+
       });
     });
 </script>
