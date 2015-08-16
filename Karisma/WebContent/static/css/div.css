@@ -258,3 +258,18 @@ div#login{
 	font-size:12px;
 	margin-right:2px;
 	}
+.modal-header{
+	background:#72CFEB;
+	color:#fff;
+}
+div#login-wrong{
+	display:none;
+}
+
+div#login-empty{
+	display:none;
+}
+
+div#insertOk{
+	display:none;
+}

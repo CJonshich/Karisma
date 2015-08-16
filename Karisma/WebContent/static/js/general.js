@@ -1,7 +1,49 @@
 $(document).ready(function(){
-	
+	/*Login*/
+	$('#btnLogin').click(function(){
+		var user = $('#user').val();
+		var pass = $('#pass').val();
+		var okUser = true;
+		var okPass = true;
+		
+		if(!$('#user').val()){
+			okUser = false;
+		}
+		if(!$('#pass').val()){
+			okPass = false;
+		}
+		
+		if(okUser&&okPass){
+			$.ajax({
+				url:'empleado',
+				type:'POST',
+				dataType: 'JSON',
+				data : {"user":""+user+"" ,"pass":""+pass+""},
+		//		contentType:'application/json',
+	            success:function(data){
+	            	if(data.success){
+	            		window.location.href="http://localhost:8085/Karisma"+data.url;
+	            	}else{
+	            		$('#login-wrong').fadeIn();
+	            	}
+	            },
+	            error:function(){
+	            	
+	            }
+			});
+		}else{
+			$('#login-empty').fadeIn();
+			if(!okUser){
+				$('#user').parent().addClass('has-error');
+			}
+			if(!okPass){
+				$('#pass').parent().addClass('has-error');
+			}
+		}
+	});
+	/*Fin Login*/
 	$('#btn_guardar_ser').click(function(){
-		$('#form_servicio').submit();
+	 	$('#form_servicio').submit();
 	});
 	
 	$('.botonCSS').click(function(){
@@ -17,10 +59,10 @@ $(document).ready(function(){
 			contentType:'application/json',
 			success: function(data){
 				$('#opcion').val('editar');
-				$('#txtCodservicio').val(data.idservicio);
-				$('#txtNombre').val(data.nomservicio);
-				$('#txaDescripcion').val(data.descripcion);
-				$('#txtCosto').val(data.costo);
+				$('#codservicio').val(data.idservicio);
+				$('#nombre').val(data.nomservicio);
+				$('#descripcion').val(data.descripcion);
+				$('#costo').val(data.costo);
 			},
 			error: function(){
 				alert('Ocurrio un error');
@@ -39,5 +81,7 @@ $(document).ready(function(){
 			window.location.href=event.currentTarget.getAttribute('href');
 		});
 	});
+	
+	
 	
 });
